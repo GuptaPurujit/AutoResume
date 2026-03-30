@@ -1,0 +1,38 @@
+services:
+
+  # ── Ollama — local LLM runtime ─────────────────────────────────────────────
+  ollama:
+    image: ollama/ollama
+    container_name: autoresume-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+    # GPU support (uncomment if you have an NVIDIA GPU + nvidia-container-toolkit)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+  # ── AutoResume TUI ─────────────────────────────────────────────────────────
+  autoresume:
+    build: .
+    container_name: autoresume
+    # Interactive terminal — required for the Textual TUI
+    stdin_open: true
+    tty: true
+    volumes:
+      # Mount local resumes/ so outputs survive container restart
+      - ./resumes:/app/resumes
+    environment:
+      # Point to the Ollama service defined above
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+
+volumes:
+  ollama_models:

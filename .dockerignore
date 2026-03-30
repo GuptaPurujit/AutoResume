@@ -1,0 +1,19 @@
+# Python
+.venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.egg-info/
+
+# Output files (mounted as volume at runtime)
+resumes/*.md
+resumes/*.pdf
+
+# Dev / editor
+.git/
+.gitignore
+.python-version
+*.log
+
+# CI / docs
+.github/

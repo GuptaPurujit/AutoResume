@@ -1,0 +1,24 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# uv
+.python-version
+
+# Resume outputs — versioned markdown and rendered PDFs
+resumes/*.md
+resumes/*.pdf
+
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp

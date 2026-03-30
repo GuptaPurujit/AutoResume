@@ -1,0 +1,122 @@
+@page {
+    size: letter;
+    margin: 0.75in 0.75in 0.75in 0.75in;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #000000;
+    background: #ffffff;
+}
+
+.resume {
+    width: 100%;
+}
+
+/* ── Name ── */
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20pt;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3pt;
+    color: #000000;
+}
+
+/* ── Contact line (paragraph immediately after h1) ── */
+h1 + p {
+    text-align: center;
+    font-size: 10pt;
+    margin-bottom: 10pt;
+    color: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Section headings ── */
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11.5pt;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1.5pt solid #000000;
+    margin-top: 11pt;
+    margin-bottom: 5pt;
+    padding-bottom: 2pt;
+    color: #000000;
+}
+
+/* ── Job title / Degree ── */
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-top: 7pt;
+    margin-bottom: 1pt;
+    color: #000000;
+}
+
+/* ── Date / location italic line (paragraph immediately after h3) ── */
+h3 + p {
+    font-size: 10pt;
+    font-style: italic;
+    color: #333333;
+    margin-bottom: 3pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Bullet achievements ── */
+ul {
+    margin-left: 15pt;
+    margin-bottom: 3pt;
+}
+
+li {
+    margin-bottom: 2pt;
+    font-size: 11pt;
+}
+
+/* ── General paragraphs (summary, etc.) ── */
+p {
+    margin-bottom: 4pt;
+}
+
+/* ── Skills section bold labels ── */
+strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+/* ── Inline code (unused in resumes, but safe fallback) ── */
+code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+}
+
+/* ── Links: plain black, no underline ── */
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* ── Prevent page breaks mid job entry ── */
+h3 {
+    page-break-after: avoid;
+}
+
+h3 + p {
+    page-break-after: avoid;
+}
+
+/* ── Horizontal rule used as section separator by LLM (hide it) ── */
+hr {
+    display: none;
+}

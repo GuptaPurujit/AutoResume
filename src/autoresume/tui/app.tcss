@@ -1,0 +1,10 @@
+/* AutoResume TUI – global styles */
+
+Screen {
+    background: $surface;
+}
+
+/* Notification styling — minor tweaks for readability */
+Toast {
+    max-width: 60;
+}
