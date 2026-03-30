@@ -28,6 +28,9 @@ services:
     volumes:
       # Mount local resumes/ so outputs survive container restart
       - ./resumes:/app/resumes
+      # Mount current directory as /workspace so you can pass any resume file on your host.
+      # Usage: docker compose run --rm autoresume /workspace/my_resume.md
+      - .:/workspace:ro
     environment:
       # Point to the Ollama service defined above
       - OLLAMA_HOST=http://ollama:11434

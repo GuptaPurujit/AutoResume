@@ -94,8 +94,10 @@ docker compose build autoresume
 # Pull the model inside the Ollama container
 docker compose exec ollama ollama pull qwen2.5:7b-instruct
 
-# Run the TUI with your resume
-docker compose run --rm autoresume /path/to/resume.md
+# Run the TUI with your resume.
+# The current directory is mounted as /workspace inside the container,
+# so pass the path relative to /workspace:
+docker compose run --rm autoresume /workspace/my_resume.md
 ```
 
 Rendered PDFs and versioned markdowns are saved to `./resumes/` on your host.
@@ -110,16 +112,19 @@ cd autoresume
 docker build -t autoresume .
 
 # macOS / Windows (Docker Desktop)
+# Mount the directory containing your resume as /workspace (read-only)
 docker run -it --rm \
   -v "$(pwd)/resumes:/app/resumes" \
+  -v "/path/to/resume/dir:/workspace:ro" \
   -e OLLAMA_HOST=http://host.docker.internal:11434 \
-  autoresume /path/to/resume.md
+  autoresume /workspace/my_resume.md
 
 # Linux (Docker Engine)
 docker run -it --rm \
   -v "$(pwd)/resumes:/app/resumes" \
+  -v "/path/to/resume/dir:/workspace:ro" \
   -e OLLAMA_HOST=http://172.17.0.1:11434 \
-  autoresume /path/to/resume.md
+  autoresume /workspace/my_resume.md
 ```
 
 ### Option C — Local Python (macOS)
